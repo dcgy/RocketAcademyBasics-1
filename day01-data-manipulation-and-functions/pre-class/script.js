@@ -8,7 +8,7 @@ var greetingMain = function (input) {
   var myOutputValue = `hello ${input}, you look great today`;
   return myOutputValue;
 };
-
+s;
 var metricMain = function (input) {
   // Attempt the Metric Conversion Program exercise from the Our First Program module below with metricMain as the main function.
   const miles = 0.62;
@@ -36,6 +36,7 @@ var trainSpeedMain = function (input) {
 };
 
 var currentHourAngle = function (hour) {
+  // Calculate angle of hour hand
   let hourAngle = (hour / 12) * 360;
   console.log(hourAngle);
 
@@ -44,8 +45,12 @@ var currentHourAngle = function (hour) {
 
 var clockMain = function (input) {
   // Attempt the More Comfortable: Clock exercise from the Functions I module below with clockMain as the main function.
-  let hourAngle = currentHourAngle(1);
-  let minuteAngle = (input / 60) * 360;
-  var myOutputValue = minuteAngle - hourAngle;
-  return myOutputValue;
+  if (input <= 60) {
+    let hourAngle = currentHourAngle(1);
+    let minuteAngle = (input / 60) * 360;
+    var myOutputValue = "The angle is " + Math.abs(minuteAngle - hourAngle);
+    return myOutputValue;
+  } else {
+    alert("Please input a proper time in minutes");
+  }
 };

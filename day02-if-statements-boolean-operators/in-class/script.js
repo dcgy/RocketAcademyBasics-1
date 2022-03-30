@@ -12,20 +12,24 @@ var rollDice = function () {
 
 var lucky11Main = function (input) {
   // Complete the Base: Lucky 11 exercise below with lucky11Main as the main function.
-  let dice = rollDice();
-  console.log(dice);
-  if (input == dice.diceNumberOne) {
-    var myOutputValue = "You Won";
-    return myOutputValue;
-  } else if (input == dice.diceNumberTwo) {
-    var myOutputValue = "You Won";
-    return myOutputValue;
-  } else if (input == dice.winningValue) {
-    var myOutputValue = "You Won";
-    return myOutputValue;
+  if (isNaN(input)) {
+    alert("Please key in a number");
   } else {
-    var myOutputValue = "You Lost";
-    return myOutputValue;
+    let dice = rollDice();
+    console.log(dice);
+    if (input == dice.diceNumberOne) {
+      var myOutputValue = "You Won";
+      return myOutputValue;
+    } else if (input == dice.diceNumberTwo) {
+      var myOutputValue = "You Won";
+      return myOutputValue;
+    } else if (input == dice.winningValue) {
+      var myOutputValue = "You Won";
+      return myOutputValue;
+    } else {
+      var myOutputValue = "You Lost";
+      return myOutputValue;
+    }
   }
 };
 

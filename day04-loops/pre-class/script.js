@@ -1,6 +1,6 @@
 var followAlongMain = function (input) {
   // Attempt the Follow Along exercise from the Loops module below with followAlongMain as the main function.
-  var myOutputValue = "hello world";
+  var myOutputValue = "hello worl";
   return myOutputValue;
 };
 

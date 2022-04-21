@@ -13,6 +13,12 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <title>Basics</title>
     <!-- The <link> element specifies a relationship between this HTML page and an external resource, namely the styles.css file here. In this case, we are linking a stylesheet which is a CSS file containing information relating to the layout and style of the webpage. The syntax within the styles.css file is also referred to as CSS - Cascading Style Sheets. -->
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Modak&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <!-- The <body> element defines the document's body, and is a container for all the visible contents that will be rendered by the browser.  -->
@@ -60,20 +66,50 @@ The <html> element is known as the root element of a HTML page. All other elemen
       </ul>
     </nav>
     <!-- The <h1> element defines a large heading. There are 6 pre-set header elements, <h1> to <h6> -->
-    <h1 id="header">🚀 Basics Project 3: Blackjack 🚀</h1>
     <!-- The <div> tag defines a division or a section in an HTML document, and is commonly use as a "container" for nested HTML elements. -->
-    <div class="container">
-      <!-- The <p> tag defines a paragraph element. -->
-      <p>Input:</p>
-      <!-- The self-closing <input /> tag represents a field for a user to enter input. -->
-      <input id="input-field" />
-      <!-- The self-closing <br /> tag represents a line break - a line's worth of spacing before dispalying the next element. -->
-      <br />
-      <!-- The <button> tag represents.. you guessed it! a button. -->
-      <button id="submit-button">Submit</button>
-      <p>Output:</p>
-      <div class="output-div" id="output-div"></div>
+    <div class="container heading">
+      <p id="output-div">Welcome. Press “Deal Cards” To Begin</p>
     </div>
+    <div class="container">
+      <div class="header">
+        <h1>BlackJack</h1>
+      </div>
+      <div class="card-wrapper">
+        <p class="player-subheading">Player Cards</p>
+        <div class="card-row" id="player-cards">
+          <!-- <div class="card">
+            <h3 class="card-number">1</h3>
+            <h3 class="card-suit">A</h3>
+          </div> -->
+          <!-- <div class="card">
+            <h3 class="card-number">1</h3>
+            <h3 class="card-suit">A</h3>
+          </div> -->
+        </div>
+        <div class="card-wrapper">
+            <p class="player-subheading">Dealer Cards</p>
+            <div class="card-row" id="dealer-cards">
+              <!-- <div class="card">
+                <h3 class="card-number">1</h3>
+                <h3 class="card-suit">A</h3>
+              </div>
+              <div class="card">
+                <h3 class="card-number">1</h3>
+                <h3 class="card-suit">A</h3>
+              </div> -->
+
+            </div>
+      </div>
+      <div class="button-wrapper">
+          <button class="main" id="submit-button">Deal Cards</button>
+        <div class="button-wrapper-left">
+            <button class="sub" id="hit">H</button>
+            <button class="sub" id="stand">S</button>
+        </div>
+      </div>
+      <div class="wrapper"></div>
+    </div>
+
     <!-- Everything below this is incorporating JavaScript programming logic into the webpage. -->
     <!-- The script tag encloses JavaScript syntax for the browser to interpret programtically -->
     <!-- The following line imports all code written in the script.js file -->
@@ -82,20 +118,46 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <script>
       // Declare and define a variable that represents the Submit Button
       var button = document.querySelector("#submit-button");
+      var hitButton = document.querySelector("#hit");
+      var standButton = document.querySelector("#stand");
       // When the submit button is clicked, access the text entered by the user in the input field
       // And pass it as an input parameter to the main function as defined in script.js
       button.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
+
         // Store the output of main() in a new variable
-        var result = main(input.value);
+        var result = main();
 
         // Display result in output element
         var output = document.querySelector("#output-div");
         output.innerHTML = result;
 
         // Reset input value
-        input.value = "";
+        // input.value = "";
+      });
+
+      hitButton.addEventListener("click", function () {
+        // Store the output of main() in a new variable
+        var result = hit();
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        // input.value = "";
+      });
+      
+      standButton.addEventListener("click", function () {
+        // Store the output of main() in a new variable
+        var result = stand();
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        // input.value = "";
       });
     </script>
   </body>

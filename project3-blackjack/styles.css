@@ -9,10 +9,53 @@
 
 body {
   margin-top: 0;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
   margin-left: 30px;
   margin-right: 30px;
   background-color: #e0e0e0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Modak", cursive;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+
+h1 {
+  font-size: 6.125rem;
+  line-height: 0.5;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.card-wrapper {
+  width: 100%;
+}
+
+.player-subheading {
+  font-size: 1.65rem;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.card {
+  width: 15%;
+  border: 4px solid #000000;
+  margin-right: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  aspect-ratio: 4/5;
 }
 
 nav {
@@ -56,13 +99,22 @@ nav ul li a {
   text-align: center;
 }
 
+.container.heading {
+  padding: 0.75rem 0.75rem;
+}
+
 .container {
-  background-color: #ffffff;
-  margin: 40px auto;
-  max-width: 800px;
-  padding: 38px 31px;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #faf4e6;
+  margin: 1rem auto;
+  max-width: 50rem;
+  padding: 4rem 7.5rem;
+  border-radius: 35px;
+  border: 4px solid #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
 }
 
 input {
@@ -73,11 +125,36 @@ input {
   width: 100%;
 }
 
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 0rem;
+  justify-content: space-between;
+}
+
+
+
 button {
-  font-size: 21px;
-  line-height: 33px;
-  margin: 0 0 23px 0;
-  padding: 0 6px;
+  font-family: Modak;cursive;
+  font-weight: 400;
+  font-size: 30px;
+  background: #000000;
+  color: #faf4e6;
+  border: 4px solid #faf4e6;
+  padding: 1rem 2.5rem;
+  border-radius: 35px;
+  height: 5.5rem;
+  point-events: auto;
+}
+
+button:hover {
+  background: #3c3c3c;
+}
+
+button.sub {
+  padding: 1rem 1rem;
+  height: 5.5rem;
+  width: 5.5rem;
 }
 
 .output-div {

@@ -66,22 +66,106 @@ var emojiCenterSquareMain = function (input) {
   return myOutputValue;
 };
 
+var numberOfDiceRoll = 0;
+var winCount = 0;
+var loseCount = 0;
+var isWon = false;
+
+var generateDiceNumber = function () {
+  var randomDecimal = Math.random() * 6;
+  var randomInteger = Math.floor(randomDecimal) + 1;
+  return randomInteger;
+};
+
 var multiDiceBaseMain = function (input) {
-  // Complete the Base: Multi-Dice Game exercise below with multiDiceBaseMain as the main function.
-  var myOutputValue = "hello world";
-  return myOutputValue;
+  // User determine number of rounds
+  if (numberOfDiceRoll == 0) {
+    numberOfDiceRoll = input;
+    console.log(numberOfDiceRoll);
+    return `Number of rounds is ${numberOfDiceRoll}.Please make your guess.`;
+  } else {
+    // check for any correct guesses
+    for (var i = 0; i < numberOfDiceRoll; i += 1) {
+      var diceNumber = generateDiceNumber();
+      console.log(`Dice Number is ${diceNumber}.`);
+      if (diceNumber == input) {
+        var isWon = true;
+      }
+    }
+    if (isWon) {
+      winCount = winCount + 1;
+      var myOutputValue = "You Won";
+    } else {
+      loseCount = loseCount + 1;
+      var myOutputValue = "You Lost";
+    }
+    return `${myOutputValue}.Win Count is ${winCount}. Loss Count is ${loseCount}.`;
+  }
 };
 
 var multiDiceMultiRoundMain = function (input) {
-  // Complete the More Comfortable: Multi-Round Multi-Dice Game exercise below with multiDiceMultiRoundMain as the main function.
-  var myOutputValue = "hello world";
-  return myOutputValue;
+  if (numberOfDiceRoll == 0) {
+    numberOfDiceRoll = input;
+    console.log(numberOfDiceRoll);
+    return `Number of rounds is ${numberOfDiceRoll}.Please make your guess.`;
+  } else {
+    // check for any correct guesses
+    for (var i = 0; i < 4; i += 1) {
+      for (var j = 0; j < numberOfDiceRoll; j += 1) {
+        var diceNumber = generateDiceNumber();
+        console.log(`Dice Number is ${diceNumber}.`);
+        if (diceNumber == input) {
+          var isWon = true;
+        }
+      }
+    }
+    if (isWon) {
+      winCount = winCount + 1;
+      var myOutputValue = "You Won";
+    } else {
+      loseCount = loseCount + 1;
+      var myOutputValue = "You Lost";
+    }
+    return `${myOutputValue}.Win Count is ${winCount}. Loss Count is ${loseCount}.`;
+  }
 };
 
+var numberOfPlayers = 0;
+
 var multiDiceTwoPlayerMain = function (input) {
-  // Complete the More Comfortable: Two Player Multi-Round Multi-Dice Game exercise below with multiDiceTwoPlayerMain as the main function.
-  var myOutputValue = "hello world";
-  return myOutputValue;
+  if (numberOfPlayers == 0) {
+    numberOfPlayers = input;
+    return `There are ${numberOfPlayers} players in this game. First player to first input the number of rounds.`;
+  } else {
+    for (var k = 1; k < numberOfPlayers + 1; k += 1) {
+      if (numberOfDiceRoll == 0) {
+        numberOfDiceRoll = input;
+        console.log(numberOfDiceRoll);
+        return `Number of rounds is ${numberOfDiceRoll}.Please make your guess.`;
+      } else {
+        // check for any correct guesses
+        for (var i = 0; i < 4; i += 1) {
+          for (var j = 0; j < numberOfDiceRoll; j += 1) {
+            var diceNumber = generateDiceNumber();
+            console.log(`Dice Number is ${diceNumber}.`);
+            if (diceNumber == input) {
+              var isWon = true;
+            }
+          }
+        }
+        if (isWon) {
+          winCount = winCount + 1;
+          var myOutputValue = "You Won";
+        } else {
+          loseCount = loseCount + 1;
+          var myOutputValue = "You Lost";
+        }
+        return `${myOutputValue}.Win Count is ${winCount}. Loss Count is ${loseCount}.Player ${
+          k + 1
+        } is next.`;
+      }
+    }
+  }
 };
 
 var multiDiceMultiPlayerMain = function (input) {

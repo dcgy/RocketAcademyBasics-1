@@ -4,6 +4,14 @@ var madLibsAdjectivesMain = function (input) {
   return myOutputValue;
 };
 
+
+for (j=0, i<names.length, j+=1){
+  myOutputValue += "names.[i]" + "," + "</br>";
+}
+
+return myOutputValue
+
+
 var madLibsInputCreateMain = function (input) {
   // Complete the Comfortable: Input and Create Mode exercise below with madLibsInputCreateMain as the main function.
   var myOutputValue = 'hello world';
